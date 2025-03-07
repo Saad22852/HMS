@@ -2,6 +2,8 @@ import mongoose from 'mongoose';
 import app from './src/app.js';
 import config from './src/config/index.js';
 import cloudinary from 'cloudinary';
+import dotenv from 'dotenv';
+dotenv.config();
 
 // Configure cloudinary
 cloudinary.v2.config({
@@ -13,6 +15,7 @@ cloudinary.v2.config({
 // Connect to the database and start the server
 (async () => {
 	try {
+		console.log('MONGODB_URL:', process.env.MONGODB_URL);
 		await mongoose.connect(config.MONGODB_URL);
 		console.log('Database connected successfully');
 

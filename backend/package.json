@@ -8,7 +8,7 @@
     "start": "node index.js",
     "dev": "nodemon index.js"
   },
-  "author": "Moid Alam",
+  "author": "Chaudhary Fazal Elahi, Mohammad Afzal Subhani, Saad-Ul-Hassan",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.1",

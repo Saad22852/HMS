@@ -23,7 +23,6 @@ const appointmentSchema = new mongoose.Schema(
 			trim: true,
 			lowercase: true,
 			validate: [validator.isEmail, 'Please enter a valid email'],
-			unique: true,
 		},
 		phone: {
 			type: String,
@@ -39,6 +38,7 @@ const appointmentSchema = new mongoose.Schema(
 		gender: {
 			type: String,
 			enum: ['Male', 'Female', 'Other'],
+			required: [true, 'Gender is required'],
 		},
 		appointmentDate: {
 			type: String,
@@ -48,35 +48,9 @@ const appointmentSchema = new mongoose.Schema(
 			type: String,
 			required: [true, 'Department is required'],
 		},
-		doctor: {
-			firstName: {
-				type: String,
-				required: [true, 'Doctor first name is required'],
-				trim: true,
-				maxlength: [50, 'Doctor first name cannot exceed 50 characters'],
-				minlength: [3, 'Doctor first name should have at least 3 characters'],
-			},
-			lastName: {
-				type: String,
-				required: [true, 'Doctor last name is required'],
-				trim: true,
-				maxlength: [50, 'Doctor last name cannot exceed 50 characters'],
-				minlength: [3, 'Doctor last name should have at least 3 characters'],
-			},
-		},
 		hasVisited: {
 			type: Boolean,
 			default: false,
-		},
-		doctorId: {
-			type: mongoose.Schema.Types.ObjectId,
-			ref: 'User',
-			required: [true, 'Doctor ID is required'],
-		},
-		patientId: {
-			type: mongoose.Schema.Types.ObjectId,
-			ref: 'User',
-			required: [true, 'Patient ID is required'],
 		},
 		address: {
 			type: String,

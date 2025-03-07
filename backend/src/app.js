@@ -5,6 +5,9 @@ import routes from './routes/index.js';
 import config from './config/index.js';
 import fileUpload from 'express-fileupload';
 import {errorHandler} from './middlewares/customError.js';
+import dotenv from 'dotenv';
+dotenv.config();
+
 
 const app = express();
 app.use(express.json());
@@ -26,7 +29,7 @@ app.use(
 
 app.use('/api/v1', routes);
 app.get('/', (_req, res) => {
-	res.send('Welcome there Moid -- API!');
+	res.send('Hello World! Server is running in localhost:5000!');
 });
 
 app.all('*', (_req, res) => {

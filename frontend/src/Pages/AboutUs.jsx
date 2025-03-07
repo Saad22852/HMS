@@ -4,6 +4,7 @@ import Biography from '../components/Biography';
 import Navbar from '../components/Navbar';
 import whoweare from '/whoweare.png';
 
+
 const AboutUs = () => {
 	return (
 		<>
